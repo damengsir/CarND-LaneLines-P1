@@ -2,7 +2,6 @@
 
 ## Writeup Template
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -21,27 +20,28 @@ The goals / steps of this project are the following:
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. Describe your pipeline.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+My pipeline consisted of 6 steps：
+1. Convert the images to grayscale.
+2. Define a kernel size for Gaussian smoothing.
+3. Extract the edge using Canny function.
+4. Coding up a Region of Interest Mask.
+5. Draw lane lines using segmented lines.
+6. Draw lane lines using solid lines.
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+In order to include only lane edges, I'v modified the position of several points in region_of_interest() function.
 
-![alt text][image1]
+In order to reduce the shake of pipelines in videos, I'v reduced the value of "minLineLength" and "macLineGap" in HoughLinesP() function.
 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
+The two pipelines will get crossed easyly when the road ahead appears a big curve. 
 
 
 ### 3. Suggest possible improvements to your pipeline
+When there is a curve in the road ahead,we can draw curve by changing the model.
 
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
